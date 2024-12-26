@@ -1,2 +1,2 @@
 ollama
-streamlit
+streamlit==1.41.1

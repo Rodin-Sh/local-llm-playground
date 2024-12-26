@@ -13,7 +13,7 @@ if "conversation" not in st.session_state:
     st.session_state.conversation = ''''''
 
 with st.sidebar:
-    chatbot_name = st.text_input("Chatbot Name", value="MARCUS")
+    chatbot_name = st.text_input("Chatbot Name", value="MR SHOKRAVI")
 
     st.download_button(
         label="Export Conversation",
