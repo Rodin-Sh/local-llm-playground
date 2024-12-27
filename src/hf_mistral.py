@@ -1,4 +1,4 @@
-from openai import OpenAI
+from huggingface_hub import InferenceClient
 from dotenv import load_dotenv
 import streamlit as st
 import os
@@ -6,10 +6,8 @@ import os
 load_dotenv()
 api_key = os.getenv("API_KEY")
 
-client = OpenAI(
-	base_url="https://api-inference.huggingface.co/v1/",
-	api_key=api_key
-)
+client = InferenceClient(api_key=api_key)
+
 
 messages = [
     {"role": "system", "content": "You are a personal therapist. Your responses are very concise and conversational."},
