@@ -5,16 +5,12 @@ import os
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
-
+prompt = "Act like a personal therapist. Your responses are very concise and conversational. You ask questions."
 client = InferenceClient(api_key=api_key)
 
-
 messages = [
-    {"role": "system", "content": "You are a personal therapist. Your responses are very concise and conversational."},
+    {"role": "system", "content": prompt},
 ]
-
-with st.sidebar:
-    chatbot_name = st.text_input("Chatbot Name", value="MARCUS")
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
@@ -48,6 +44,8 @@ if prompt := st.chat_input():
     st.chat_message("assistant").write(msg)
 
 with st.sidebar:
+    chatbot_name = st.text_input("Chatbot Name", value="MARCUS")
+
     st.download_button(
         label="Export Conversation",
         data=st.session_state.conversation,
