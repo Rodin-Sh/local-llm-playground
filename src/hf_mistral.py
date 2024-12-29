@@ -6,7 +6,7 @@ from huggingface_hub import InferenceClient
 
 # Loading Python tools
 load_dotenv()
-with open('config.yaml', 'r') as file:
+with open("../src/config.yaml", "r") as file:
     config = yaml.safe_load(file)
 
 # Create a new Python exception for authentication
