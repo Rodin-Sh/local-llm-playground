@@ -6,8 +6,6 @@ from huggingface_hub import InferenceClient
 
 # Loading Python tools
 load_dotenv()
-with open("config.yaml", "r") as file:
-    config = yaml.safe_load(file)
 
 # Create a new Python exception for authentication
 class AuthenticationError(Exception):
@@ -16,7 +14,7 @@ class AuthenticationError(Exception):
 # All variables
 api_key = os.getenv("API_KEY")
 PW = os.getenv("PW")
-prompt = config.get('prompt', '')
+prompt = os.getenv("PROMPT")
 messages = [{"role": "system", "content": prompt}]
 
 # HuggingFace client
